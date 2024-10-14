@@ -1,11 +1,11 @@
 1. Создать таблицу с текстовым полем и заполнить случайными или сгенерированными  
 данным в размере 1 млн строк  
-CREATE TABLE hw3 (text text);  
+```CREATE TABLE hw3 (text text);  
 SELECT pg_size_pretty(pg_total_relation_size('hw3')) AS total_size;  
  8192 bytes
 INSERT INTO hw3 (text)  
 SELECT substr(md5(random()::text), 1, 10)  
-FROM generate_series(1, 1000000);  
+FROM generate_series(1, 1000000);  ```
 2. Посмотреть размер файла с таблицей  
 SELECT pg_relation_filepath('hw3');  
 base/16726/17129  
