@@ -7,9 +7,9 @@ psql -p 5434 -c "CREATE USER replicator WITH REPLICATION ENCRYPTED PASSWORD '';
 psql -p 5434 -c "SELECT pg_create_physical_replication_slot('test');"  
 rm -rf /var/lib/postgresql/14/main3  
 pg_basebackup -h localhost -p 5434 -U replicator -R -S test -D /var/lib/postgresql/14/main3  
-Ver Cluster Port Status          Owner    Data directory               Log file
-14  main2   5434 online          postgres /var/lib/postgresql/14/main2 /var/log/postgresql/postgresql-14-main2.log     
-14  main3   5435 online,recovery postgres /var/lib/postgresql/14/main3 /var/log/postgresql/postgresql-14-main3.log  
+Ver Cluster Port Status          Owner    Data directory               Log file   
+14  main2   5434 online          postgres /var/lib/postgresql/14/main2 /var/log/postgresql/postgresql-14-main2.log       
+14  main3   5435 online,recovery postgres /var/lib/postgresql/14/main3 /var/log/postgresql/postgresql-14-main3.log    
 # ❖ тестируем производительность по сравнению с сингл инстансом
 Синг инстанс чтение tps = 24353  
 Синг инстанс запись tps = 5540  
